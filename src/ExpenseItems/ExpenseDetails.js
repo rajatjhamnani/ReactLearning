@@ -1,3 +1,4 @@
+import React from 'react';
 import './Expenseitems.css'
 function ExpenseDetails(props){
 return(

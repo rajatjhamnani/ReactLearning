@@ -1,5 +1,7 @@
+import React from 'react';
 import logo from './logo.svg';
 import ExpenseItem from './ExpenseItems/expenseitems';
+import Expenses from './ExpenseItems/Expenses';
 import './App.css';
 
 function App() {
@@ -34,13 +36,14 @@ const expenses=[
   location:'home'
 }
 ]
+// return React.createElement(
+//   'div',
+//   {className:App},
+//   React.createElement(Expenses ,{expenses:expenses})
+// )
   return (
     <div className="App">
-      {
-        expenses.map((expense,i)=>(
-          <ExpenseItem title={expenses[i].title} amount={expenses[i].amount} date={expenses[i].date} location={expenses[i].location}></ExpenseItem>
-        ))
-      }
+      <Expenses expenses={expenses}/>
     
      
      {/* <ExpenseItem title={expenses[0].title} amount={expenses[0].amount} date={expenses[0].date} location={expenses[0].location}></ExpenseItem>
