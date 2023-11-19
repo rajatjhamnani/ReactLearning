@@ -8,7 +8,8 @@ const Expenses=(props)=>{
         <Card className="expenses">
              {
         arr.map((expense,i)=>(
-          <ExpenseItem title={arr[i].title} amount={arr[i].amount} date={arr[i].date} location={arr[i].location}></ExpenseItem>
+          <ExpenseItem title={arr[i].title} amount={arr[i].amount} id={arr[i].id} date={arr[i].date} location={arr[i].location}></ExpenseItem>
+
         ))
       }
         </Card>
