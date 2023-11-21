@@ -4,6 +4,8 @@ import Expenses from './component/Expenses/Expenses';
 import ExpenseItem from './component/Expenses/expenseitems';
 import './App.css';
 import ExpenseDetails from './component/Expenses/ExpenseDetails';
+import NewExpense from './component/New Expense/NewExpense';
+
 
 const App=()=> {
   const [expenses,setExpenses]=useState([
@@ -46,6 +48,7 @@ const App=()=> {
 // )
   return (
     <div className="App">
+      <NewExpense/>
       <Expenses expenses={expenses} setExpenses={setExpenses}  />
       
       
