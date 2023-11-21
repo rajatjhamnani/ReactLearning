@@ -6,11 +6,15 @@ import Card from '../UI/Card'
 const ExpenseItem=(props)=>{
    const [title ,  setTitle]=useState(props.title)
   // const {expenses}=props
-    let ondelete=props.onDelete;
-   const clickHandler=()=>{
+  const clickHandler=()=>{
     setTitle('updated')
     console.log(title)
    }
+   const [amount , setAmount]=useState(props.amount)
+   const changeAmount=()=>{
+    setAmount('100')
+   }
+   let ondelete=props.onDelete;
    
    //console.log(props.expenses)
  
@@ -18,8 +22,9 @@ const ExpenseItem=(props)=>{
     return(
         <Card className="expense-item">
             <ExpenseDate date={props.date}/>
-            <ExpenseDetails title={title} amount={props.amount} location={props.location}/>
+            <ExpenseDetails title={title} amount={amount} location={props.location}/>
             <button onClick={clickHandler}>Change Title</button>
+            <button onClick={changeAmount}>Change amount</button>
             <button onClick={ondelete}  >Delete Expense</button>
         </Card>
     )
