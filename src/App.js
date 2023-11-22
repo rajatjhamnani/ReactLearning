@@ -8,8 +8,10 @@ import NewExpense from './component/New Expense/NewExpense';
 
 
 const App=()=> {
+  
   const [expenses,setExpenses]=useState([
     {
+      
      id:'e1',
      title:'toilet paper',
      amount:29,
@@ -39,6 +41,12 @@ const App=()=> {
     location:'home'
   }
   ])
+  const addExpenseHandler=(expense)=>{
+    console.log('inApp.js')
+    console.log(expense)
+   // expenses.push(expense)
+    setExpenses([...expenses,expense])
+  }
 
  
 // return React.createElement(
@@ -48,7 +56,7 @@ const App=()=> {
 // )
   return (
     <div className="App">
-      <NewExpense/>
+      <NewExpense onAddExpense={addExpenseHandler}/>
       <Expenses expenses={expenses} setExpenses={setExpenses}  />
       
       
