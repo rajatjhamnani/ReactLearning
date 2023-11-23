@@ -17,17 +17,21 @@ const Expenses=(props)=>{
    const filteredExpenses= arr.filter(expense =>{
     return expense.date.getFullYear().toString()===filteredYear
    })
+   let expensesContent=<p>There ia no content</p>
+
+   if(filteredExpenses.length>=1){
+    expensesContent= filteredExpenses.map((expense,i)=>(
+      <ExpenseItem key={expense.id}title={expense.title} amount={expense.amount} id={expense.id} date={expense.date} location={expense.location}
+        onDelete={()=>onDelete(expense.id)} ></ExpenseItem>
+        
+      ))
+   }
 
     return(
         <Card className="expenses">
           <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler}/>
-             {
-        filteredExpenses.map((expense,i)=>(
-        <ExpenseItem key={expense.id}title={expense.title} amount={expense.amount} id={expense.id} date={expense.date} location={expense.location}
-          onDelete={()=>onDelete(expense.id)} ></ExpenseItem>
-          
-        ))
-      }
+             {expensesContent}
+             {filteredExpenses.length===1? <p>only one expense left plaese add more expenses </p> :""}
         </Card>
     )
    
