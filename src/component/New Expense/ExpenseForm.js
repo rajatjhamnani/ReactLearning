@@ -52,6 +52,7 @@ function ExpenseForm(props){
         setEnteredTitle('')
         setEnteredAmount('')
         setEnteredDate('')
+        setEnteredLocation('')
     }
     
     return(

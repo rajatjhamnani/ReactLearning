@@ -16,8 +16,8 @@ const Expenses=(props)=>{
           <ExpensesFilter />
              {
         arr.map((expense,i)=>(
-        <ExpenseItem title={arr[i].title} amount={arr[i].amount} id={arr[i].id} date={arr[i].date} location={arr[i].location}
-          onDelete={()=>onDelete(arr[i].id)}></ExpenseItem>
+        <ExpenseItem key={expense.id}title={expense.title} amount={expense.amount} id={expense.id} date={expense.date} location={expense.location}
+          onDelete={()=>onDelete(expense.id)}></ExpenseItem>
           
         ))
       }

@@ -6,46 +6,49 @@ import './App.css';
 import ExpenseDetails from './component/Expenses/ExpenseDetails';
 import NewExpense from './component/New Expense/NewExpense';
 
+const Dummy_Expenses=[
+  {
+    
+   id:'e1',
+   title:'toilet paper',
+   amount:29,
+   date:new Date(2021 , 2 , 28),
+   location:'Home'
+  },
+  {
+  id:'e2',
+  title:'New Tv',
+  amount:290,
+  date:new Date(2022 , 4 , 28),
+  location:'Home'
+},
+  
+  {
+  id:'e3',
+  title:'Car Insurance',
+  amount:150,
+  date:new Date(2021 , 11 , 28),
+  location:'Car'
+},
+  { 
+  id:'e4',
+  title:'home decor',
+  amount:500,
+  date:new Date(2022 , 5 , 26),
+  location:'home'
+}
+]
+
 
 const App=()=> {
   
-  const [expenses,setExpenses]=useState([
-    {
-      
-     id:'e1',
-     title:'toilet paper',
-     amount:29,
-     date:new Date(2021 , 2 , 28),
-     location:'Home'
-    },
-    {
-    id:'e2',
-    title:'New Tv',
-    amount:290,
-    date:new Date(2022 , 4 , 28),
-    location:'Home'
-  },
-    
-    {
-    id:'e3',
-    title:'Car Insurance',
-    amount:150,
-    date:new Date(2021 , 11 , 28),
-    location:'Car'
-  },
-    { 
-    id:'e4',
-    title:'home decor',
-    amount:500,
-    date:new Date(2022 , 5 , 26),
-    location:'home'
-  }
-  ])
+  const [expenses,setExpenses]=useState(Dummy_Expenses)
   const addExpenseHandler=(expense)=>{
-    console.log('inApp.js')
-    console.log(expense)
+    
    // expenses.push(expense)
-    setExpenses([...expenses,expense])
+    setExpenses((prevexpense)=>{
+      return [expense, ...prevexpense]
+    })
   }
 
  
