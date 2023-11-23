@@ -10,14 +10,21 @@ const Expenses=(props)=>{
     const onDelete=(id)=>{
       set(arr.filter((expense)=>expense.id!==id))
      }
-   
+   const [filteredYear , setFilteredYear]=useState('2020')
+   const filterChangeHandler =(selectedYear)=>{
+    setFilteredYear(selectedYear)
+   }
+   const filteredExpenses= arr.filter(expense =>{
+    return expense.date.getFullYear().toString()===filteredYear
+   })
+
     return(
         <Card className="expenses">
-          <ExpensesFilter />
+          <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler}/>
              {
-        arr.map((expense,i)=>(
+        filteredExpenses.map((expense,i)=>(
         <ExpenseItem key={expense.id}title={expense.title} amount={expense.amount} id={expense.id} date={expense.date} location={expense.location}
-          onDelete={()=>onDelete(expense.id)}></ExpenseItem>
+          onDelete={()=>onDelete(expense.id)} ></ExpenseItem>
           
         ))
       }
