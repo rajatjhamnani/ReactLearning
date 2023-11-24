@@ -3,6 +3,7 @@ import ExpenseItem from "./expenseitems"
 import './Expenses.css'
 import Card from '../UI/Card'
 import ExpensesFilter from './ExpensesFilter'
+import ExpenseChart from './ExpensesChart';
 const Expenses=(props)=>{
   //const {setExpenses}=props
     let arr=props.expenses
@@ -30,6 +31,7 @@ const Expenses=(props)=>{
     return(
         <Card className="expenses">
           <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler}/>
+          <ExpenseChart expenses={filteredExpenses}/>
              {expensesContent}
              {filteredExpenses.length===1? <p>only one expense left plaese add more expenses </p> :""}
         </Card>
